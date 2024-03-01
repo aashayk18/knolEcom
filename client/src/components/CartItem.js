@@ -1,0 +1,47 @@
+import React from "react";
+import axios from "axios";
+
+export default function CartItem(props) {
+  const deleteFromCart = async () => {
+    try {
+      const id = props.id;
+      console.log(id)
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `http://localhost:4000/db/cart/delete`,
+        { productId: id },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log("Product removed from cart:", response.data);
+    } catch (error) {
+      console.error("Error removing product from cart:", error);
+    }
+  };
+
+  return (
+    <div className="card mb-3">
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img
+            src={props.image}
+            className="img-fluid rounded-start"
+            alt={props.name}
+          />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-name">{props.name}</h5>
+            <p className="card-text">Price: ${props.price}</p>
+            <button onClick={deleteFromCart} className="btn btn-danger">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
