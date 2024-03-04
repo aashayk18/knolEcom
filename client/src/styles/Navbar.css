@@ -8,3 +8,11 @@
   margin-left: -30px;
   margin-right: 30px;
 }
+
+.icon-link.light {
+  color: white;
+}
+
+.icon-link.dark {
+  color: black;
+}

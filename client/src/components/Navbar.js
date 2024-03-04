@@ -232,7 +232,7 @@ export default function Navbar() {
             onClick={() => {
               handleFilter();
             }}
-            className="btn btn-light"
+            className={`btn btn-outline-${theme === "dark" ? "dark" : "light"}`}
           >
             Apply Filter
           </button>
@@ -271,7 +271,10 @@ export default function Navbar() {
             </li>
           </ul>
 
-          <a href="#" onClick={toggleTheme} className="icon-link">
+          <a
+            onClick={toggleTheme}
+            className={`icon-link ${theme === "dark" ? "dark" : "light"}`}
+          >
             {theme === "dark" ? (
               <FontAwesomeIcon icon={faSun} />
             ) : (

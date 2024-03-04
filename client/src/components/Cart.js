@@ -65,7 +65,8 @@ export default function Cart() {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{height: "100vh"}}>
+    <br />
       <h1 className="mb-4">Cart 🛒</h1>
       <div className="row">
         <div className="col-md-8">

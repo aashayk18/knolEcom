@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from "../contexts/ThemeContext";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -62,7 +64,7 @@ export default function Home() {
   return (
     <div>
       <div className="container text-center mt-5">
-        <h1 className="mb-3" style={{ color: "black" }}>
+        <h1 className="mb-3" style={{ color: theme === "dark" ? "white" : "black" }}>
           Products
         </h1>
         <div className="row">
